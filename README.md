@@ -52,7 +52,7 @@ Download at: [Google drive](https://drive.google.com/drive/folders/1iSCFiVDbk9Vc
 Run the files "CNN-Tweezer.py" and "ResNet-Tweezer.py" to train the particle property prediction neural networks.
 
 
-**3.Predict nanoparticles size**
+**2.Predict nanoparticles size**
 
 
 Run the file "size.py" to predict the size.
