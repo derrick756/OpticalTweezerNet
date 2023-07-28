@@ -40,7 +40,7 @@ pip install pandas
 
 
 # Download the simulation code to generate training data
-The simulation codes for generating theoretical constrained Brownian profiles can be downloaded on Google drive. The link is below
+The simulation codes for generating theoretical constrained Brownian profiles and simulation data can be downloaded on Google drive. The link is below
 
 
 Download at: [Google drive](https://drive.google.com/drive/folders/1iSCFiVDbk9VcOxf4U-Y5a56myzIPHHSo).
