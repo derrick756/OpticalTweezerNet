@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow import keras
 from keras import backend as K
 from keras.layers import Dense, Dropout, Flatten, Conv1D, Input, Add, \
-                         Activation, ZeroPadding1D, BatchNormalization, \
+                         Activation, BatchNormalization, \
                          AveragePooling1D, MaxPooling1D, GlobalMaxPooling1D
 from keras.models import Model
 from keras.initializers import glorot_uniform
@@ -140,12 +140,17 @@ def ResNet50(input_tensor, output_shape=1, dropout_rate=0.8, learning_rate=5e-5)
     """
     Implementation of the popular ResNet50 the following architecture:
     
-    """    
+    """
+    
+    
+    # Define the input as a tensor with shape input_shape
+    X_input = Input(input_shape)
+    
     # Stage 1
     X = Conv1D(filters=64, kernel_size=5, padding='same')(X_input)
     X = BatchNormalization()(X)
     X = Activation('relu')(X)
-    X = MaxPooling1D((3, 3), strides=(2, 2))(X)
+    X = MaxPooling1D((1, 3), strides=(1, 2))(X)
 
     # Stage 2
     X = conv_block(X)
@@ -172,7 +177,7 @@ def ResNet50(input_tensor, output_shape=1, dropout_rate=0.8, learning_rate=5e-5)
     X = idn_block(X)
 
     # AVGPOOL 
-    X = AveragePooling1D((2,2), name='avg_pool')(X)
+    X = AveragePooling1D((1,2), name='avg_pool')(X)
     
     # Flatten
     X = Flatten()(X)
